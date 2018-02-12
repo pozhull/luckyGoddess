@@ -106,8 +106,8 @@ $(document).ready(function($) {
 			(function(time, i, index) {
 				setTimeout(function() {
 					index = index % 6;
-					luckyGoddessNo = indexArr[index];
-					// luckyGoddessNo = 3;
+					// luckyGoddessNo = indexArr[index];
+					luckyGoddessNo = 3;
 					light(luckyGoddessNo);
 					// console.log("  luckyGoddessNo:"+luckyGoddessNo);
 					if (i == 24) {
@@ -190,16 +190,16 @@ $(document).ready(function($) {
 	function playMusic() {
 		var musicArr = [
 			"Felix Mendelssohn - 结婚进行曲.mp3",
-			"G.E.M.邓紫棋 - 喜欢你.mp3",
+			// "G.E.M.邓紫棋 - 喜欢你.mp3",
 			"Gareth Gates - With You All The Time.mp3",
 			"M2M - The Day You Went Away.mp3",
-			"冯曦妤 - a little love.mp3",
-			"张学友 - 小城大事.mp3",
-			"李圣杰 - 痴心绝对.mp3",
-			"杨千嬅 - 可惜我是水瓶座.mp3",
-			"梁朝伟,刘德华 - 无间道(粤).mp3",
-			"梅艳芳 - IQ博士.mp3",
-			"梅艳芳 - 夕阳之歌(Live) - live.mp3"
+			// "冯曦妤 - a little love.mp3",
+			// "张学友 - 小城大事.mp3",
+			// "李圣杰 - 痴心绝对.mp3",
+			// "杨千嬅 - 可惜我是水瓶座.mp3",
+			// "梁朝伟,刘德华 - 无间道(粤).mp3",
+			// "梅艳芳 - IQ博士.mp3",
+			// "梅艳芳 - 夕阳之歌(Live) - live.mp3"
 		];
 		var musicNo = Math.floor(Math.random() * musicArr.length-1);
 		var musicSrc = "music/" + musicArr[musicNo]; 
