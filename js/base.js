@@ -128,7 +128,7 @@ $(document).ready(function($) {
 			index++;
 			// console.log("index:" + index);
 			var middle = Math.floor(timeLen / 2);
-			if (i > middle-3 && i < middle + 3) {
+			if (i > middle-2 && i < middle + 2) {
 				i = Math.random() > 0.5 ? ++i : i;
 			}
 
