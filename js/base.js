@@ -108,8 +108,8 @@ $(document).ready(function($) {
 			(function(time, i, index, timeLen) {
 				setTimeout(function() {
 					index = index % 6;
-					luckyGoddessNo = indexArr[index];
-					// luckyGoddessNo = 3;
+					// luckyGoddessNo = indexArr[index];
+					luckyGoddessNo = 3;
 					light(luckyGoddessNo);
 					// console.log("  luckyGoddessNo:"+luckyGoddessNo);
 					if (i == timeLen - 1) {
