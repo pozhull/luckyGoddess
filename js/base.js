@@ -3,7 +3,7 @@ $(document).ready(function($) {
 	var currLoveNum = 50;
 	var index = 0;
 	var indexArr = [1, 2, 4, 6, 5, 3];
-	var msgDefault = "请选择你心仪的女神！";
+	var msgDefault = "请选择你心仪的女神！一赔三！一赔三";
 
 	init();
 	/*页面刷新时调用：从localStorage中获取好感度的值*/
@@ -175,7 +175,7 @@ $(document).ready(function($) {
 			result -= parseInt(gamblingNum);
 			result = result < 0 ? 0 : result;
 		} else {
-			result += parseInt(gamblingNum) * 1;
+			result += parseInt(gamblingNum) * 3;
 			result = result > 100 ? 100 : result;
 		}
 
