@@ -3,6 +3,7 @@ $(document).ready(function($) {
 	var currLoveNum = 50;
 	var index = 0;
 	var indexArr = [1, 2, 4, 6, 5, 3];
+	var msgDefault = "请选择你心仪的女神！";
 
 	init();
 	/*页面刷新时调用：从localStorage中获取好感度的值*/
@@ -38,7 +39,7 @@ $(document).ready(function($) {
 		/* Act on the event */
 		var warningInfo = "";
 		if ($(".light").length == 6) {
-			warningInfo = "请选择你心仪的女神！赔率：一赔三赔率：一赔三";
+			warningInfo = msgDefault;
 		} else {
 			var selectedGod = $(".light").attr('name');		
 			var gamblingNum = parseInt($("#gamblingNum").val());  //赌注
@@ -51,7 +52,7 @@ $(document).ready(function($) {
 	/*点击图片其他任意地方使图片变亮*/
 	$(document).click(function(){
 	    $(".row-item").addClass('light');
-	    $("#warning-info").html("请选择你心仪的女神！赔率：一赔三");
+	    $("#warning-info").html(msgDefault);
 	});
 	$(".row-item img, #start, #gamblingNum").click(function(event){
 	    event.stopPropagation();
@@ -91,7 +92,7 @@ $(document).ready(function($) {
 		var speed = 50;
 		var luckyGoddessNo = 0;
 		var win = false;
-		var timeLen = 25;
+		var timeLen = 30;
 		
 		for (var i = 0; i < timeLen; i++) {
 			time += speed ;
