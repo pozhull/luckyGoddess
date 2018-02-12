@@ -98,10 +98,11 @@ $(document).ready(function($) {
 			time += speed ;
 			index++;
 			console.log("index:" + index);
-			if (i > 10 && i < 15) {
+			if (i > 5 && i < timeLen - 5) {
 				i = Math.random() > 0.5 ? ++i : i;
 				time += speed ;
 			}
+
 			// console.log("i:" + i);
 			// console.log('time:' + time);
 			(function(time, i, index) {
