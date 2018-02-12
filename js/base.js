@@ -173,7 +173,7 @@ $(document).ready(function($) {
 			result -= parseInt(gamblingNum);
 			result = result < 0 ? 0 : result;
 		} else {
-			result += parseInt(gamblingNum) * 3;
+			result += parseInt(gamblingNum) * 1;
 			result = result > 100 ? 100 : result;
 		}
 
