@@ -105,14 +105,14 @@ $(document).ready(function($) {
 
 			// console.log("i:" + i);
 			// console.log('time:' + time);
-			(function(time, i, index) {
+			(function(time, i, index, timeLen) {
 				setTimeout(function() {
 					index = index % 6;
 					luckyGoddessNo = indexArr[index];
 					// luckyGoddessNo = 3;
 					light(luckyGoddessNo);
 					// console.log("  luckyGoddessNo:"+luckyGoddessNo);
-					if (i == 24) {
+					if (i == timeLen - 1) {
 						imgUrl = "img/goddess-ps/goddess0" + (luckyGoddessNo) +".jpg";
 						// console.log("luckyGoddessNo:"+luckyGoddessNo);
 						// console.log("goddessNum:"+goddessNum);
@@ -153,7 +153,7 @@ $(document).ready(function($) {
 					// console.log("the Lucky Goddess is No." + luckyGoddessNo);
 					// console.log("幸运女神是：" + luckyGoddess);
 				}, time);
-			})(time, i, index);
+			})(time, i, index, timeLen);
 			
 		}
 	}
