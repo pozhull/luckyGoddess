@@ -83,8 +83,8 @@ $(document).ready(function($) {
 						(luckyGoddessNo+Math.floor(Math.random()*5)) % 6 + 1;
 					*/
 					index = index % 6;
-					// luckyGoddessNo = indexArr[index];
-					luckyGoddessNo = 3;
+					luckyGoddessNo = indexArr[index];
+					// luckyGoddessNo = 3;
 					light(luckyGoddessNo);
 					console.log("  luckyGoddessNo:"+luckyGoddessNo);
 					if (i == 24) {
