@@ -4,15 +4,20 @@ $(document).ready(function($) {
 	var index = 0;
 	var indexArr = [1, 2, 4, 6, 5, 3];
 	var msgDefault = "请选择你心仪的女神！一赔三！一赔三";
+	var rewardJson = [0, 0, 0, 0, 0, 0];
 
 	init();
 	/*页面刷新时调用：从localStorage中获取好感度的值*/
 	function init() {
 		var lastLoveNum = localStorage.lastLoveNum;
+		var lastrewardJson = localStorage.rewardJson;
 
 		//从localstorage获取上次的好感值
 		if (lastLoveNum != null && lastLoveNum != undefined) {
 			currLoveNum = lastLoveNum;
+		} 
+		if (lastrewardJson != null && lastrewardJson != undefined) {
+			rewardJson = JSON.parse(lastrewardJson);
 		} 
 		msg(currLoveNum);
 
@@ -84,6 +89,30 @@ $(document).ready(function($) {
 		parseMusic();
 		currLoveNum = 50;
 		msg(currLoveNum);
+		localStorage.lastLoveNum = 50;
+	});
+
+	/*点击遮罩层隐藏奖励弹窗*/
+	$("#rewardBigBox").click(function(){
+	    $(this).addClass('hidden');
+	});
+
+	$(".rewardDiv").click(function(event){
+	    event.stopPropagation();
+	});
+	// var rewardJson = [false, false, false, false, false, false];
+	/*点击奖励按钮跳出弹窗*/
+	$("#reward").click(function() {
+		console.log(rewardJson);
+		console.log(rewardJson.length);
+		$("#rewardBigBox").removeClass("hidden");
+
+		for (var i = 0; i < rewardJson.length; i++) {
+			if (rewardJson[i] == 1) {
+				console.log("i:" + i);
+				$(".row-item-alert[data='" + (i+1) + "']").addClass('light');
+			}
+		}
 	});
 
 	/*开赌*/
@@ -97,10 +126,10 @@ $(document).ready(function($) {
 		for (var i = 0; i < timeLen; i++) {
 			time += speed ;
 			index++;
-			console.log("index:" + index);
-			if (i > 5 && i < timeLen - 5) {
+			// console.log("index:" + index);
+			var middle = Math.floor(timeLen / 2);
+			if (i > middle-4 && i < middle + 4) {
 				i = Math.random() > 0.5 ? ++i : i;
-				time += speed ;
 			}
 
 			// console.log("i:" + i);
@@ -108,8 +137,8 @@ $(document).ready(function($) {
 			(function(time, i, index, timeLen) {
 				setTimeout(function() {
 					index = index % 6;
-					// luckyGoddessNo = indexArr[index];
-					luckyGoddessNo = 3;
+					luckyGoddessNo = indexArr[index];
+					// luckyGoddessNo = 1;
 					light(luckyGoddessNo);
 					// console.log("  luckyGoddessNo:"+luckyGoddessNo);
 					if (i == timeLen - 1) {
@@ -122,22 +151,26 @@ $(document).ready(function($) {
 						currLoveNum = currLoveResult(currLoveNum, gamblingNum, win);
 						localStorage.lastLoveNum = currLoveNum;
 						if (win) {  //赢
-							// 好感度为100
+							// 好感度不为100
 							if (currLoveNum != 100) {
+								
 								swal({ 
 								  title: "漂亮！", 
 								  text: "你和女神又近了一步。",
-								  type: "success",
-								  imageUrl: imgUrl 
+								  imageUrl: "img/thumbs-up.jpg" 
 								});
-							// 好感度不为100
+							// 好感度为100
 							} else {
+								playMusic();
 								swal({ 
-								  title: "牵手成功！", 
+								  title: "漂亮！", 
+								  text: "牵手成功！获得该女神碎片",
 								  type: "success",
 								  imageUrl: imgUrl 
 								});
-								playMusic();
+								var key = parseInt(luckyGoddessNo-1);
+								rewardJson[luckyGoddessNo-1] = 1;
+								localStorage.rewardJson = JSON.stringify(rewardJson);
 							}
 						} else {    //输
 							swal({ 
@@ -148,7 +181,7 @@ $(document).ready(function($) {
 						}
 						console.log('currLoveNum:' + currLoveNum);
 						msg(currLoveNum);
-
+						
 					}
 					// console.log("the Lucky Goddess is No." + luckyGoddessNo);
 					// console.log("幸运女神是：" + luckyGoddess);
@@ -204,6 +237,8 @@ $(document).ready(function($) {
 			// "梅艳芳 - 夕阳之歌(Live) - live.mp3"
 		];
 		var musicNo = Math.floor(Math.random() * musicArr.length-1);
+		musicNo = musicNo == -1 ? 0 : musicNo;
+		console.log(musicNo);
 		var musicSrc = "music/" + musicArr[musicNo]; 
 		$("#musicAudio").attr('src', musicSrc).get(0).play();
 		$("#start").addClass('hidden');

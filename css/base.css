@@ -1,10 +1,11 @@
 
 
+.row-item-alert,
 .row-item {
 	display: block;
-	width: 50%;
+/*	width: 50%;
 	height: 125px;
-	overflow: hidden;
+	overflow: hidden;*/
 	opacity: 0.3
 }
 .container .progress {
@@ -30,6 +31,34 @@
 	padding: 0;
 	text-align: right;
 }
-.imgDivBox .light {
+.imgDivBox .row .light {
 	opacity: 1;
+}
+
+body .rewardDiv {
+	display: block;
+	width: 360px;
+	height: 440px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -180px;
+	margin-top: -220px;
+	z-index: 100;
+}
+.reward {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 50;
+}
+#rewardBigBox {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 }

@@ -82,7 +82,7 @@
 	  			<div class="col-xs-2 footer-money-div">
 	  				<p class="text-primary footer-money-p" >赌注：</p>
 	  			</div>
-	  			<div class="col-xs-5">
+	  			<div class="col-xs-4">
 	  				<select class="form-control" id="gamblingNum">
 	  				  	<option value="5">5</option>
 	  				  	<option value="10">10</option>
@@ -90,18 +90,80 @@
 	  				  	<option value="20">20</option>
 	  				</select>
 	  			</div>
-	  			<div class="col-xs-5">
+	  			<div class="col-xs-6">
 	  				<button class="btn btn-primary" id="start">开始</button>
-	  				<button class="btn btn-primary hidden" id="reset">重新开始</button>
+	  				<button class="btn btn-primary hidden" id="reset">重玩</button>
+	  				<button class="btn btn-primary" id="reward">奖励</button>
 	  				<audio class="hidden" id="musicAudio" src="music/Felix Mendelssohn - 结婚进行曲.mp3" loop></audio>
 	  			</div>
 	  		</div>
 	  	</div>
+	
 	</div>
 </div>
 
+<!-- 奖励弹出框 -->
+<div class="hidden" id="rewardBigBox">
+	<div class="reward" id="reward"></div>
+	<div class="container rewardDiv">
+		<div class="panel panel-info">
+		  	<div class="panel-heading">
+				你拥有的女神有
+		  	</div>
+		  	<div class="panel-body">
 
-
+				<!-- 图片 -->
+		  		<div class="imgDivBox">
+		  			<!-- 第一行 -->
+			  		<div class="row">
+			  			<!-- 图片一 -->
+			  		  	<div class="col-xs-6 col-md-3 row-item-alert " data="1" name="范冰冰">
+			  		    	<a href="#" class="thumbnail">
+			  		      		<!-- <img src="img/goddess01.jpg" alt=""> -->
+			  		      		<img src="img/goddess-ps/goddess01.jpg" alt="范冰冰">
+			  		    	</a>
+			  		  	</div>
+			  			<!-- 图片二 -->
+			  		  	<div class="col-xs-6 col-md-3 row-item-alert " data="2" name="赵丽颖">
+			  		    	<a href="#" class="thumbnail">
+			  		      		<!-- <img src="img/goddess02.jpg" alt=""> -->
+			  		      		<img src="img/goddess-ps/goddess02.jpg" alt="赵丽颖">
+			  		    	</a>
+			  		  	</div>
+		  		  		<!-- 图片三 -->
+		  		  	  	<div class="col-xs-6 col-md-3 row-item-alert " data="3" name="江疏影">
+			  		    	<a href="#" class="thumbnail">
+			  		      		<!-- <img src="img/goddess03.jpg" alt=""> -->
+			  		      		<img src="img/goddess-ps/goddess03.jpg" alt="江疏影">
+			  		    	</a>
+			  		  	</div>
+		  		  		<!-- 图片四 -->
+		  		  	  	<div class="col-xs-6 col-md-3 row-item-alert" data="4" name="刘亦菲">
+		  		  	    	<a href="#" class="thumbnail">
+		  		  	      		<!-- <img src="img/goddess04.jpg" alt=""> -->
+		  		  	      		<img src="img/goddess-ps/goddess04.jpg" alt="刘亦菲">
+		  		  	    	</a>
+		  		  	  	</div>
+	  		  	  		<!-- 图片五 -->
+	  		  	  	  	<div class="col-xs-6 col-md-3 row-item-alert" data="5" name="郑爽">
+	  		  	  	    	<a href="#" class="thumbnail">
+	  		  	  	      		<!-- <img src="img/goddess05.jpg" alt=""> -->
+	  		  	  	      		<img src="img/goddess-ps/goddess05.jpg" alt="郑爽">
+	  		  	  	    	</a>
+	  		  	  	  	</div>
+	  		  	  		<!-- 图片六 -->
+	  		  	  	  	<div class="col-xs-6 col-md-3 row-item-alert" data="6" name="金智媛">
+	  		  	  	    	<a href="#" class="thumbnail">
+	  		  	  	      		<!-- <img src="img/goddess06.jpg" alt=""> -->
+	  		  	  	      		<img src="img/goddess-ps/goddess06.jpg" alt="金智媛">
+	  		  	  	    	</a>
+	  		  	  	    </div>
+			  		</div>
+		  		</div>
+		  	</div>
+		</div>
+	</div>
+</div>
 	
 </body>
 <script type="text/javascript" src="js/jquery.js"></script>
