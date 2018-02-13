@@ -3,8 +3,8 @@ $(document).ready(function($) {
 	var currLoveNum = 50;
 	var index = 0;
 	var indexArr = [1, 2, 4, 6, 5, 3];
-	var msgDefault = "请选择你心仪的女神！一赔三！一赔三";
-	var rewardJson = [0, 0, 0, 0, 0, 0];
+	var msgDefault = "请选择你心仪的卡通人物！一赔三！一赔三";
+	var rewardJson = [3, 0, 3, 0, 0, 0];
 
 	init();
 	/*页面刷新时调用：从localStorage中获取好感度的值*/
@@ -33,7 +33,7 @@ $(document).ready(function($) {
 		ele.addClass('light').siblings(".row-item").removeClass('light');
 		var selectedGod = ele.attr('name');
 		var gamblingNum = parseInt($("#gamblingNum").val());  //赌注
-		var warningInfo = "您选中的女神是: " + selectedGod  
+		var warningInfo = "您选中的卡通人物是: " + selectedGod  
 				+ ", 赌注为" + gamblingNum + "个好感度";
 		$("#warning-info").html(warningInfo);		
 		
@@ -48,7 +48,7 @@ $(document).ready(function($) {
 		} else {
 			var selectedGod = $(".light").attr('name');		
 			var gamblingNum = parseInt($("#gamblingNum").val());  //赌注
-			warningInfo = "您选中的女神是: " + selectedGod  
+			warningInfo = "您选中的卡通人物是: " + selectedGod  
 				+ ", 赌注为" + gamblingNum + "个好感度";
 		}
 		$("#warning-info").html(warningInfo);
@@ -70,7 +70,7 @@ $(document).ready(function($) {
 		var selectGod = $(".light").length == 6 ? false : true;
 		if (!selectGod) {
 			swal({ 
-			  	title: "请选择你的女神",
+			  	title: "请选择一个卡通人物",
 			  	type: "warning",
 			  	html: true 
 			});
@@ -103,6 +103,14 @@ $(document).ready(function($) {
 	// var rewardJson = [false, false, false, false, false, false];
 	/*点击奖励按钮跳出弹窗*/
 	$("#reward").click(function() {
+		var rewardNo = 0;
+
+		for (var i = 0; i < rewardJson.length; i++) {
+			if (rewardJson[i] < rewardNo) {
+				rewardJson = rewardJson[i];
+			}
+		}
+		$("#rewardNo").html(" <strong>" + rewardNo + "</strong> 套");
 		console.log(rewardJson);
 		console.log(rewardJson.length);
 		$("#rewardBigBox").removeClass("hidden");
@@ -111,7 +119,8 @@ $(document).ready(function($) {
 			if (rewardJson[i] > 0) {
 				// console.log("i:" + i);
 				$(".row-item-alert[data='" + (i+1) + "']").addClass('light');
-				$(".row-item-alert[data='" + (i+1) + "']").append(" <span>"+rewardJson[i]+"</span>");
+				$(".row-item-alert[data='" + (i+1) + "']").
+				append(" <span>"+(rewardJson[i]-rewardNo)+"</span>");
 			}
 		}
 	});
@@ -157,7 +166,7 @@ $(document).ready(function($) {
 								
 								swal({ 
 								  title: "漂亮！", 
-								  text: "你和女神又近了一步。",
+								  text: "离成功又近了一步。",
 								  imageUrl: "img/thumbs-up.jpg" 
 								});
 							// 好感度为100
@@ -165,7 +174,7 @@ $(document).ready(function($) {
 								playMusic();
 								swal({ 
 								  title: "漂亮！", 
-								  text: "牵手成功！获得该女神碎片",
+								  text: "牵手成功！获得该碎片",
 								  type: "success",
 								  imageUrl: imgUrl 
 								});
