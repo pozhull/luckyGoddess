@@ -108,9 +108,10 @@ $(document).ready(function($) {
 		$("#rewardBigBox").removeClass("hidden");
 
 		for (var i = 0; i < rewardJson.length; i++) {
-			if (rewardJson[i] == 1) {
-				console.log("i:" + i);
+			if (rewardJson[i] > 0) {
+				// console.log("i:" + i);
 				$(".row-item-alert[data='" + (i+1) + "']").addClass('light');
+				$(".row-item-alert[data='" + (i+1) + "']").append(" <span>"+rewardJson[i]+"</span>");
 			}
 		}
 	});
@@ -169,7 +170,7 @@ $(document).ready(function($) {
 								  imageUrl: imgUrl 
 								});
 								var key = parseInt(luckyGoddessNo-1);
-								rewardJson[luckyGoddessNo-1] = 1;
+								rewardJson[luckyGoddessNo-1] += 1;
 								localStorage.rewardJson = JSON.stringify(rewardJson);
 							}
 						} else {    //输
