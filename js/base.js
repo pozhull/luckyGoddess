@@ -103,11 +103,11 @@ $(document).ready(function($) {
 	// var rewardJson = [false, false, false, false, false, false];
 	/*点击奖励按钮跳出弹窗*/
 	$("#reward").click(function() {
-		var rewardNo = 0;
+		var rewardNo = rewardJson[0];
 
-		for (var i = 0; i < rewardJson.length; i++) {
+		for (var i = 1; i < rewardJson.length; i++) {
 			if (rewardJson[i] < rewardNo) {
-				rewardJson = rewardJson[i];
+				rewardNo = rewardJson[i];
 			}
 		}
 		$("#rewardNo").html(" <strong>" + rewardNo + "</strong> 套");
@@ -116,7 +116,7 @@ $(document).ready(function($) {
 		$("#rewardBigBox").removeClass("hidden");
 
 		for (var i = 0; i < rewardJson.length; i++) {
-			if (rewardJson[i] > 0) {
+			if (rewardJson[i] - rewardNo > 0) {
 				// console.log("i:" + i);
 				$(".row-item-alert[data='" + (i+1) + "']").addClass('light');
 				$(".row-item-alert[data='" + (i+1) + "']").
