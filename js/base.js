@@ -67,7 +67,8 @@ $(document).ready(function($) {
 	$("#start").click(function(event) {
 		/* Act on the event */
 		/*未选择女神*/
-		var selectGod = $(".light").length == 6 ? false : true;
+		// var selectGod = $(".light").length == 6 ? false : true;
+		var selectGod = $(".row-item").find(".light").length == 6 ? false : true;
 		if (!selectGod) {
 			swal({ 
 			  	title: "请选择一个卡通人物",
